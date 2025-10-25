@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0sr7k47wp5cq"]
+
+[ext_resource type="Script" uid="uid://de43psw32tffi" path="res://entities/chest/chest.gd" id="1_36laa"]
+[ext_resource type="PackedScene" uid="uid://cr6sg2a0th7js" path="res://components/interaction_zone.tscn" id="1_ld6i3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_36laa"]
+radius = 244.05
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4pq6m"]
+
+[node name="Chest" type="Node2D" node_paths=PackedStringArray("interaction_indicator")]
+script = ExtResource("1_36laa")
+interaction_indicator = NodePath("InteractionHint")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.80007917, 0.3018591, 0.67260516, 1)
+
+[node name="InteractionZone" parent="." node_paths=PackedStringArray("awareness_shape", "proximity_shape") instance=ExtResource("1_ld6i3")]
+awareness_shape = NodePath("Aware")
+proximity_shape = NodePath("Prox")
+
+[node name="Aware" type="CollisionShape2D" parent="InteractionZone"]
+shape = SubResource("CircleShape2D_36laa")
+debug_color = Color(0.826516, 0.2656865, 0.74047416, 0.41960785)
+
+[node name="Prox" type="CollisionShape2D" parent="InteractionZone"]
+shape = SubResource("CircleShape2D_4pq6m")
+
+[node name="InteractionHint" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="awareness_entered" from="InteractionZone" to="." method="_on_interaction_zone_awareness_entered"]
+[connection signal="awareness_exited" from="InteractionZone" to="." method="_on_interaction_zone_awareness_exited"]
+[connection signal="interacted" from="InteractionZone" to="." method="_on_interaction_zone_interacted"]
+[connection signal="proximity_entered" from="InteractionZone" to="." method="_on_interaction_zone_proximity_entered"]
+[connection signal="proximity_exited" from="InteractionZone" to="." method="_on_interaction_zone_proximity_exited"]

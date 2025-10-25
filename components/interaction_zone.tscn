@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cr6sg2a0th7js"]
+
+[ext_resource type="Script" uid="uid://cgl2ekotx10ay" path="res://components/interaction_zone.gd" id="1_ffc8k"]
+
+[node name="InteractionZone" type="Area2D" node_paths=PackedStringArray("awareness_shape", "proximity_shape") groups=["interaction_zone"]]
+script = ExtResource("1_ffc8k")
+awareness_shape = NodePath("")
+proximity_shape = NodePath("")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]

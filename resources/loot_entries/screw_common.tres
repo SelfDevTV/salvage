@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LootEntry" load_steps=3 format=3 uid="uid://cum1x6e8b0ofw"]
+
+[ext_resource type="Script" uid="uid://ddqhu13exppga" path="res://resources/r_loot_entry.gd" id="1_d4tls"]
+[ext_resource type="Resource" uid="uid://iqyvk7gtofh8" path="res://resources/items/screw.tres" id="1_kemcj"]
+
+[resource]
+script = ExtResource("1_d4tls")
+item = ExtResource("1_kemcj")
+weight = 10.0
+metadata/_custom_type_script = "uid://ddqhu13exppga"

@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dm33djiui74p7"]
+
+[ext_resource type="Script" uid="uid://bvjrrbwf370a4" path="res://ui/loot_ui/item_slot.gd" id="1_7axxe"]
+[ext_resource type="Shader" uid="uid://cfan2hfifenwq" path="res://ui/loot_ui/item_slot.gdshader" id="2_7evty"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6yy6f"]
+shader = ExtResource("2_7evty")
+shader_parameter/spacing = 25.0
+shader_parameter/animation_progress = 0.494000023465
+shader_parameter/dot_size = 1.0
+shader_parameter/dot_color = Color(0, 0.80784315, 0, 1)
+
+[node name="ItemSlot" type="ColorRect"]
+custom_minimum_size = Vector2(50, 50)
+offset_right = 50.0
+offset_bottom = 50.0
+script = ExtResource("1_7axxe")
+
+[node name="ColorRect" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="UIItem" type="ColorRect" parent="ColorRect"]
+material = SubResource("ShaderMaterial_6yy6f")
+layout_mode = 2
+color = Color(0.85085225, 0.48380923, 0.7640027, 1)

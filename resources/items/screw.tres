@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://iqyvk7gtofh8"]
+
+[ext_resource type="Script" uid="uid://c3a8kwule5h1u" path="res://resources/r_item_data.gd" id="1_llifr"]
+[ext_resource type="Texture2D" uid="uid://buh6tkktml4wk" path="res://icon.svg" id="1_m4i7m"]
+
+[resource]
+script = ExtResource("1_llifr")
+title = "Screw"
+icon = ExtResource("1_m4i7m")
+stack_size = 20
+metadata/_custom_type_script = "uid://c3a8kwule5h1u"

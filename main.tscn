@@ -1,0 +1,109 @@
+[gd_scene load_steps=7 format=3 uid="uid://dhj1tccnx65mi"]
+
+[ext_resource type="PackedScene" uid="uid://ym2rgr5k1tew" path="res://entities/player/player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dx4dlb0ljj4te" path="res://wall/wall_h.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://desbs4n0qohcw" path="res://wall/wall_v.tscn" id="3_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://0lrpikkvvyni" path="res://wall/wall_small.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://d0sr7k47wp5cq" path="res://entities/chest/chest.tscn" id="6_272bh"]
+[ext_resource type="PackedScene" uid="uid://gbd3upblibll" path="res://ui/loot_ui/loot_ui.tscn" id="7_272bh"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall_h" parent="Walls" instance=ExtResource("2_h2yge")]
+position = Vector2(392, 10)
+
+[node name="Wall_h2" parent="Walls" instance=ExtResource("2_h2yge")]
+position = Vector2(392, 641)
+
+[node name="Wall_v" parent="Walls" instance=ExtResource("3_1bvp3")]
+position = Vector2(8, 397)
+
+[node name="Wall_v2" parent="Walls" instance=ExtResource("3_1bvp3")]
+position = Vector2(782, 397)
+
+[node name="Wall_small" parent="Walls" instance=ExtResource("4_1bvp3")]
+position = Vector2(260, 208)
+
+[node name="Wall_small2" parent="Walls" instance=ExtResource("4_1bvp3")]
+position = Vector2(485, 128)
+
+[node name="Wall_small3" parent="Walls" instance=ExtResource("4_1bvp3")]
+position = Vector2(455, 375)
+
+[node name="Wall_small4" parent="Walls" instance=ExtResource("4_1bvp3")]
+position = Vector2(652, 239)
+
+[node name="Wall_small5" parent="Walls" instance=ExtResource("4_1bvp3")]
+position = Vector2(170, 452)
+
+[node name="Wall_small6" parent="Walls" instance=ExtResource("4_1bvp3")]
+position = Vector2(187, 342)
+
+[node name="Wall_small7" parent="Walls" instance=ExtResource("4_1bvp3")]
+position = Vector2(177, 232)
+
+[node name="Wall_small8" parent="Walls" instance=ExtResource("4_1bvp3")]
+position = Vector2(221, 118)
+
+[node name="Wall_small9" parent="Walls" instance=ExtResource("4_1bvp3")]
+position = Vector2(418, 277)
+
+[node name="Wall_small10" parent="Walls" instance=ExtResource("4_1bvp3")]
+position = Vector2(307, 509)
+
+[node name="Wall_small11" parent="Walls" instance=ExtResource("4_1bvp3")]
+position = Vector2(662, 540)
+
+[node name="Wall_small12" parent="Walls" instance=ExtResource("4_1bvp3")]
+position = Vector2(594, 401)
+
+[node name="Wall_small13" parent="Walls" instance=ExtResource("4_1bvp3")]
+position = Vector2(555, 125)
+
+[node name="Wall_small14" parent="Walls" instance=ExtResource("4_1bvp3")]
+position = Vector2(556, 125)
+
+[node name="Chests" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Chests"]
+offset_left = 185.0
+offset_top = 162.0
+offset_right = 197.0
+offset_bottom = 174.0
+color = Color(1, 1, 0.29411766, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Chests"]
+offset_left = 191.0
+offset_top = 362.0
+offset_right = 203.0
+offset_bottom = 374.0
+color = Color(6.8105014e-06, 0.6558968, 0.14925495, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Chests"]
+offset_left = 618.0
+offset_top = 406.0
+offset_right = 630.0
+offset_bottom = 418.0
+color = Color(0.9457131, 0.8719733, 0.9528993, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+position = Vector2(356, 138)
+speed = 150.0
+
+[node name="Extraction" type="ColorRect" parent="."]
+offset_left = 709.0
+offset_top = 574.0
+offset_right = 749.0
+offset_bottom = 614.0
+color = Color(0.13319641, 0.13319641, 0.13319638, 1)
+
+[node name="Chest" parent="." instance=ExtResource("6_272bh")]
+position = Vector2(685, 336)
+
+[node name="Chest2" parent="." instance=ExtResource("6_272bh")]
+position = Vector2(504, 469)
+
+[node name="LootUI" parent="." instance=ExtResource("7_272bh")]
+visible = false
