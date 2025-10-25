@@ -6,39 +6,36 @@ const ITEM_SLOT = preload("uid://dm33djiui74p7")
 @onready var items: GridContainer = $Root/CenterContainer/LootPanel/VBoxContainer/Items
 
 
+func open_ui(slot_items: Array[ItemData], animate: bool):
+	show()
+	generate_empty_slots(slot_items)
 
-const LOOT_TABLE = preload("uid://bsihle6aulemk")
+	if animate:
+		for child in items.get_children():
+			child.reveal(true)
+			await child.reveal_finished
+	else:
+		# No animation - reveal all slots immediately
+		for child in items.get_children():
+			child.reveal(false)
+			
+func clear_slots():
+	for c in items.get_children():
+		items.remove_child(c)
+		c.queue_free()
 
-var loot_items: Array[ItemData]
-
-func open_ui():
-    show()
-    
-    if not loot_items:
-        loot_items = LOOT_TABLE.generate_loot()
-        var count = 0
-        for child: ItemSlot in items.get_children():
-            if count == 2:
-                return
-            child.item = Color(randf(), randf(), randf(), 1)
-            child.reveal()
-            await child.reveal_finished
-            count += 1
-            
+func generate_empty_slots(slot_items: Array[ItemData]):
+	clear_slots()
+	for i in slot_items:
+		var slot: ItemSlot = ITEM_SLOT.instantiate()
+		slot.item = i
+		items.add_child(slot)
+		
 
 func _ready() -> void:
-    hide()
-    
-    
-    SignalManager.open_ui_requested.connect(func(): open_ui())
-    for i in range(4):
-        var slot: ItemSlot = ITEM_SLOT.instantiate()
-        items.add_child(slot)
-        
-    
-        
-        
+	hide()
+	SignalManager.open_ui_requested.connect(open_ui)
 
 
 func _on_close_button_pressed() -> void:
-    hide()
+	hide()

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs466qtm54glt"]
+
+[ext_resource type="Script" uid="uid://buqa2wxbultyr" path="res://components/lootable.gd" id="1_1vjlh"]
+[ext_resource type="Resource" uid="uid://bsihle6aulemk" path="res://resources/loot_tables/test.tres" id="2_ds87a"]
+
+[node name="Lootable" type="Node"]
+script = ExtResource("1_1vjlh")
+loot_table = ExtResource("2_ds87a")

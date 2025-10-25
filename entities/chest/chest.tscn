@@ -1,15 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0sr7k47wp5cq"]
+[gd_scene load_steps=6 format=3 uid="uid://d0sr7k47wp5cq"]
 
 [ext_resource type="Script" uid="uid://de43psw32tffi" path="res://entities/chest/chest.gd" id="1_36laa"]
 [ext_resource type="PackedScene" uid="uid://cr6sg2a0th7js" path="res://components/interaction_zone.tscn" id="1_ld6i3"]
+[ext_resource type="PackedScene" uid="uid://bs466qtm54glt" path="res://components/lootable.tscn" id="3_bbmqp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_36laa"]
 radius = 244.05
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4pq6m"]
 
-[node name="Chest" type="Node2D" node_paths=PackedStringArray("interaction_indicator")]
+[node name="Chest" type="Node2D" node_paths=PackedStringArray("lootable", "interaction_indicator")]
 script = ExtResource("1_36laa")
+lootable = NodePath("Lootable")
 interaction_indicator = NodePath("InteractionHint")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -50,6 +52,8 @@ offset_right = 10.0
 offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Lootable" parent="." instance=ExtResource("3_bbmqp")]
 
 [connection signal="awareness_entered" from="InteractionZone" to="." method="_on_interaction_zone_awareness_entered"]
 [connection signal="awareness_exited" from="InteractionZone" to="." method="_on_interaction_zone_awareness_exited"]
